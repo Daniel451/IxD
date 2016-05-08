@@ -1,17 +1,24 @@
+/**
+ * bibGUI - eigentliche GUI-Klasse
+ *
+ * @author Franziska Kissel
+ * @author Daniel Speck
+ * @author Fabian Behrendt
+ * @author Philipp Liebe
+ */
+
 package aufgabe04;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-
 import java.awt.event.*;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.BorderLayout;
 
-public class bibGUI extends JFrame implements ActionListener {
-	//
+class bibGUI extends JFrame implements ActionListener {
+	// Fenster und Container, um Inhalt darin zu platzieren
 	private JFrame content;
 	private Container container;
 	
@@ -46,12 +53,17 @@ public class bibGUI extends JFrame implements ActionListener {
 	private JButton add_book;
 	private JButton returnBook;
 	private JButton rentBook;
-	
-	public bibGUI() {
+
+    /**
+     * Konstruktor
+     */
+	public bibGUI()
+    {
+        // Das Hauptfenster erzeugen
 		content = new JFrame("Bibliothek GUI");
 		container = content.getContentPane();
 		
-		//Buttons erzeugen
+		// Buttons erzeugen
 		add_user = new JButton("Benutzer hinzufügen");
 		add_user.addActionListener(this);
 		add_book = new JButton("Buch hinzufügen");
@@ -60,17 +72,17 @@ public class bibGUI extends JFrame implements ActionListener {
 		returnBook.addActionListener(this);
 		rentBook = new JButton("Verleih");
 		rentBook.addActionListener(this);
-		
-		
+
+        // Menüleiste erzeugen
 		menuBar = new JMenuBar();
 		
-		//Menüelemente erzeugen
+		// Menüelemente erzeugen
 		datei = new JMenu("Datei");
 		datenbank = new JMenu("Datenbank");
 		fenster = new JMenu("Fenster");
 		hilfe = new JMenu("Hilfe");
 		
-		//Untermenüelemente erzeugen
+		// Untermenüelemente(-punkte) erzeugen
 		oeffnen = new JMenuItem("Öffnen");
 		oeffnen.addActionListener(this);
 		beenden = new JMenuItem("Beenden");
@@ -93,13 +105,13 @@ public class bibGUI extends JFrame implements ActionListener {
 		ueber = new JMenuItem("Über");
 		ueber.addActionListener(this);
 		
-		//Menüelemente hinzufügen
+		// Menüelemente hinzufügen
 		menuBar.add(datei);
 		menuBar.add(datenbank);
 		menuBar.add(fenster);
 		menuBar.add(hilfe);
 		
-		//Untermenüelemente hinzufügen
+		// Untermenüelemente hinzufügen
 		datei.add(oeffnen);
 		datei.add(beenden);
 		
@@ -112,41 +124,55 @@ public class bibGUI extends JFrame implements ActionListener {
 		hilfe.add(faq);
 		hilfe.add(anleitung);
 		hilfe.add(ueber);
-		
+
+        // Menüleiste für unserer content frame setzen
 		content.setJMenuBar(menuBar);
 
-		// creation stuff
+		// eigenes GridLayout erzeugen
 		GridLayout ourLayout = new GridLayout(2, 2);
+
+        // vertikale und horizontale Abstände in unserem Layout setzen
 		ourLayout.setHgap(50);
 		ourLayout.setVgap(50);
 		
-		// TODO VerticalFlowLayot
+		// TODO VerticalFlowLayot?
+        // Panels erzeugen, als Container für Inhalt um verschiedene Layout-Manager mixen zu können
 		JPanel allContentPane = new JPanel(new FlowLayout());
 		JPanel contentPane = new JPanel(ourLayout);
 		allContentPane.add(contentPane);
 		allContentPane.setBorder(new EmptyBorder(20, 20, 20, 20));
 		
-		
+		// den Hauptcontainer auf bestimmte Größe setzen und Inhalt (Buttons) hinzufügen
 		contentPane.setPreferredSize(new Dimension(400, 200));
 		contentPane.setMaximumSize(new Dimension(400, 200));
 		contentPane.add(add_user);
 		contentPane.add(add_book);
 		contentPane.add(returnBook);
 		contentPane.add(rentBook);
-		
+
+        // dem Hauptfenster diese Container hinzufügen
 		content.add(allContentPane);
-		
-		//content.setSize(800, 600);
+
+        // TODO der auskommentierte Code hier kann weg?!
+		// content.setSize(800, 600);
+
+        // Inhalt pack'en, Größe unveränderbar setzen, Beenden bei Klick auf "X" setzen und anzeigen (visible setzen)
 		content.pack();
 		content.setResizable(false);
 		content.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		content.setVisible(true);
 	}
-	
+
+    /**
+     * Action handler, der geworfene events abfängt und verarbeitet
+     *
+     * @param e das gesendete Event, hier z.B. ein Klick eines Buttons
+     */
 	public void actionPerformed(ActionEvent e)
 	{
 		JDialog popup = new JDialog();
-				
+
+        // wir switchen über die Events, um festzustellen, welcher Button geklickt wurde
 		switch(e.getActionCommand())
 		{
 			case "Benutzer hinzufügen":
@@ -169,9 +195,13 @@ public class bibGUI extends JFrame implements ActionListener {
 		
 		popup.setVisible(true);
 	}
-	
-	public JDialog addUserWindow() {
-		JDialog popupAddUser = new JDialog(content, "Benutzer hinzufügen" ,true);
+
+    /**
+     * Pop-Up-Window für "Benutzer hinzufügen"
+     */
+	public JDialog addUserWindow()
+    {
+		JDialog popupAddUser = new JDialog(content, "Benutzer hinzufügen", true);
 		
 		JPanel contentAddUser = new JPanel(new GridLayout(7, 2, 10, 10));
 		contentAddUser.setBorder(new EmptyBorder(20, 20, 20, 20));
@@ -226,7 +256,10 @@ public class bibGUI extends JFrame implements ActionListener {
 		
 		return popupAddUser;
 	}
-	
+
+    /**
+     * Pop-Up-Window für "Buch hinzüfgen"
+     */
 	public JDialog addBookWindow() {
 		JDialog popupAddBook = new JDialog(content, "Buch hinzufügen" ,true);
 		

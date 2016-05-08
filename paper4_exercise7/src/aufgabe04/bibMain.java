@@ -1,13 +1,25 @@
-package aufgabe04;
+/**
+ * bibGUI - eigentliche GUI-Klasse
+ *
+ * @author Franziska Kissel
+ * @author Daniel Speck
+ * @author Fabian Behrendt
+ * @author Philipp Liebe
+ */
 
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.*;
+package aufgabe04;
 
 public class bibMain {
 
-	public static void main(String[] args) {
-		bibGUI bla = new bibGUI();
+    /**
+     * Main-Methode; Startpunkt
+     *
+     * @param args optionale Parameter
+     */
+	public static void main(String[] args)
+    {
+        // ein Exemplar unserer bibGUI-Klasse wird erzeugt
+		bibGUI ourBibGui = new bibGUI();
 	}
 
 }

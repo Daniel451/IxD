@@ -1,6 +1,6 @@
 /**
  * bibGUI - eigentliche GUI-Klasse
- *
+ *bla
  * @author Franziska Kissel
  * @author Daniel Speck
  * @author Fabian Behrendt
@@ -22,16 +22,16 @@ class bibGUI extends JFrame implements ActionListener {
 	private JFrame content;
 	private Container container;
 	
-	//Menüleiste
+	//MenÃ¼leiste
 	private JMenuBar menuBar;
 	
-	//Menüeinträge
+	//MenÃ¼eintrÃ¤ge
 	private JMenu datei;
 	private JMenu datenbank;
 	private JMenu fenster;
 	private JMenu hilfe;
 	
-	//Untermenüeinträge
+	//UntermenÃ¼eintrÃ¤ge
 	//datei
 	private JMenuItem oeffnen;
 	private JMenuItem beenden;
@@ -64,33 +64,33 @@ class bibGUI extends JFrame implements ActionListener {
 		container = content.getContentPane();
 		
 		// Buttons erzeugen
-		add_user = new JButton("Benutzer hinzufügen");
+		add_user = new JButton("Benutzer hinzufÃ¼gen");
 		add_user.addActionListener(this);
-		add_book = new JButton("Buch hinzufügen");
+		add_book = new JButton("Buch hinzufÃ¼gen");
 		add_book.addActionListener(this);
-		returnBook = new JButton("Rückgabe");
+		returnBook = new JButton("RÃ¼ckgabe");
 		returnBook.addActionListener(this);
 		rentBook = new JButton("Verleih");
 		rentBook.addActionListener(this);
 
-        // Menüleiste erzeugen
+        // MenÃ¼leiste erzeugen
 		menuBar = new JMenuBar();
 		
-		// Menüelemente erzeugen
+		// MenÃ¼elemente erzeugen
 		datei = new JMenu("Datei");
 		datenbank = new JMenu("Datenbank");
 		fenster = new JMenu("Fenster");
 		hilfe = new JMenu("Hilfe");
 		
-		// Untermenüelemente(-punkte) erzeugen
-		oeffnen = new JMenuItem("Öffnen");
+		// UntermenÃ¼elemente(-punkte) erzeugen
+		oeffnen = new JMenuItem("Ã–ffnen");
 		oeffnen.addActionListener(this);
 		beenden = new JMenuItem("Beenden");
 		beenden.addActionListener(this);
 		
 		benutzer = new JMenuItem("Benutzer");
 		benutzer.addActionListener(this);
-		buecher = new JMenuItem("Bücher");
+		buecher = new JMenuItem("BÃ¼cher");
 		buecher.addActionListener(this);
 		
 		neuesFenster = new JMenuItem("Neues Fenster");
@@ -102,16 +102,16 @@ class bibGUI extends JFrame implements ActionListener {
 		faq.addActionListener(this);
 		anleitung = new JMenuItem("Anleitung");
 		anleitung.addActionListener(this);
-		ueber = new JMenuItem("Über");
+		ueber = new JMenuItem("Ãœber");
 		ueber.addActionListener(this);
 		
-		// Menüelemente hinzufügen
+		// MenÃ¼elemente hinzufÃ¼gen
 		menuBar.add(datei);
 		menuBar.add(datenbank);
 		menuBar.add(fenster);
 		menuBar.add(hilfe);
 		
-		// Untermenüelemente hinzufügen
+		// UntermenÃ¼elemente hinzufÃ¼gen
 		datei.add(oeffnen);
 		datei.add(beenden);
 		
@@ -125,24 +125,24 @@ class bibGUI extends JFrame implements ActionListener {
 		hilfe.add(anleitung);
 		hilfe.add(ueber);
 
-        // Menüleiste für unserer content frame setzen
+        // MenÃ¼leiste fÃ¼r unserer content frame setzen
 		content.setJMenuBar(menuBar);
 
 		// eigenes GridLayout erzeugen
 		GridLayout ourLayout = new GridLayout(2, 2);
 
-        // vertikale und horizontale Abstände in unserem Layout setzen
+        // vertikale und horizontale AbstÃ¤nde in unserem Layout setzen
 		ourLayout.setHgap(50);
 		ourLayout.setVgap(50);
 		
 		// TODO VerticalFlowLayot?
-        // Panels erzeugen, als Container für Inhalt um verschiedene Layout-Manager mixen zu können
+        // Panels erzeugen, als Container fÃ¼r Inhalt um verschiedene Layout-Manager mixen zu kÃ¶nnen
 		JPanel allContentPane = new JPanel(new FlowLayout());
 		JPanel contentPane = new JPanel(ourLayout);
 		allContentPane.add(contentPane);
 		allContentPane.setBorder(new EmptyBorder(20, 20, 20, 20));
 		
-		// den Hauptcontainer auf bestimmte Größe setzen und Inhalt (Buttons) hinzufügen
+		// den Hauptcontainer auf bestimmte GrÃ¶ÃŸe setzen und Inhalt (Buttons) hinzufÃ¼gen
 		contentPane.setPreferredSize(new Dimension(400, 200));
 		contentPane.setMaximumSize(new Dimension(400, 200));
 		contentPane.add(add_user);
@@ -150,13 +150,13 @@ class bibGUI extends JFrame implements ActionListener {
 		contentPane.add(returnBook);
 		contentPane.add(rentBook);
 
-        // dem Hauptfenster diese Container hinzufügen
+        // dem Hauptfenster diese Container hinzufÃ¼gen
 		content.add(allContentPane);
 
         // TODO der auskommentierte Code hier kann weg?!
 		// content.setSize(800, 600);
 
-        // Inhalt pack'en, Größe unveränderbar setzen, Beenden bei Klick auf "X" setzen und anzeigen (visible setzen)
+        // Inhalt pack'en, GrÃ¶ÃŸe unverÃ¤nderbar setzen, Beenden bei Klick auf "X" setzen und anzeigen (visible setzen)
 		content.pack();
 		content.setResizable(false);
 		content.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -164,7 +164,7 @@ class bibGUI extends JFrame implements ActionListener {
 	}
 
     /**
-     * Action handler, der geworfene events abfängt und verarbeitet
+     * Action handler, der geworfene events abfÃ¤ngt und verarbeitet
      *
      * @param e das gesendete Event, hier z.B. ein Klick eines Buttons
      */
@@ -172,24 +172,24 @@ class bibGUI extends JFrame implements ActionListener {
 	{
 		JDialog popup = new JDialog();
 
-        // wir switchen über die Events, um festzustellen, welcher Button geklickt wurde
+        // wir switchen Ã¼ber die Events, um festzustellen, welcher Button geklickt wurde
 		switch(e.getActionCommand())
 		{
-			case "Benutzer hinzufügen":
+			case "Benutzer hinzufÃ¼gen":
 				popup = addUserWindow();
-				System.out.println("Benutzer hinzufügen wurde gedrückt");
+				System.out.println("Benutzer hinzufÃ¼gen wurde gedrÃ¼ckt");
 				break;
-			case "Buch hinzufügen":
+			case "Buch hinzufÃ¼gen":
 				popup = addBookWindow();
-				System.out.println("Buch hinzufügen wurde gedrückt");
+				System.out.println("Buch hinzufÃ¼gen wurde gedrÃ¼ckt");
 				break;
-			case "Rückgabe":
-				popup = new JDialog(content, "Rückgabe" ,true);
-				System.out.println("Rückgabe wurde gedrückt");
+			case "RÃ¼ckgabe":
+				popup = new JDialog(content, "RÃ¼ckgabe" ,true);
+				System.out.println("RÃ¼ckgabe wurde gedrÃ¼ckt");
 				break;
 			case "Verleih":
 				popup = new JDialog(content, "Verleih" ,true);
-				System.out.println("Verleih wurde gedrückt");
+				System.out.println("Verleih wurde gedrÃ¼ckt");
 				break;
 		}
 		
@@ -197,11 +197,11 @@ class bibGUI extends JFrame implements ActionListener {
 	}
 
     /**
-     * Pop-Up-Window für "Benutzer hinzufügen"
+     * Pop-Up-Window fÃ¼r "Benutzer hinzufÃ¼gen"
      */
 	public JDialog addUserWindow()
     {
-		JDialog popupAddUser = new JDialog(content, "Benutzer hinzufügen", true);
+		JDialog popupAddUser = new JDialog(content, "Benutzer hinzufÃ¼gen", true);
 		
 		JPanel contentAddUser = new JPanel(new GridLayout(7, 2, 10, 10));
 		contentAddUser.setBorder(new EmptyBorder(20, 20, 20, 20));
@@ -222,7 +222,7 @@ class bibGUI extends JFrame implements ActionListener {
 		JTextField registrationDateField = new JTextField();
 		
 		JLabel gender = new JLabel("Geschlecht des Benutzers:");
-		JRadioButton maleButton = new JRadioButton("männlich");
+		JRadioButton maleButton = new JRadioButton("mÃ¤nnlich");
 		JRadioButton femaleButton = new JRadioButton("weiblich");
 		ButtonGroup genderGroup = new ButtonGroup();
 		genderGroup.add(maleButton);
@@ -258,10 +258,10 @@ class bibGUI extends JFrame implements ActionListener {
 	}
 
     /**
-     * Pop-Up-Window für "Buch hinzüfgen"
+     * Pop-Up-Window fÃ¼r "Buch hinzÃ¼fgen"
      */
 	public JDialog addBookWindow() {
-		JDialog popupAddBook = new JDialog(content, "Buch hinzufügen" ,true);
+		JDialog popupAddBook = new JDialog(content, "Buch hinzufÃ¼gen" ,true);
 		
 		JPanel contentAddBook = new JPanel(new GridLayout(6, 2, 10, 10));
 		contentAddBook.setBorder(new EmptyBorder(20, 20, 20, 20));
@@ -307,13 +307,13 @@ class bibGUI extends JFrame implements ActionListener {
 	}
 	
 	public JDialog returnWindow() {
-		JDialog popupAddUser = new JDialog(content, "Benutzer hinzufügen" ,true);
+		JDialog popupAddUser = new JDialog(content, "Benutzer hinzufÃ¼gen" ,true);
 		
 		return popupAddUser;
 	}
 	
 	public JDialog rentalWindow() {
-		JDialog popupAddUser = new JDialog(content, "Benutzer hinzufügen" ,true);
+		JDialog popupAddUser = new JDialog(content, "Benutzer hinzufÃ¼gen" ,true);
 		
 		return popupAddUser;
 	}
